@@ -1,0 +1,3 @@
+-keepclassmembernames class * {
+    native <methods>;
+}

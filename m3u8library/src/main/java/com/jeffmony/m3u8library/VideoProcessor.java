@@ -1,5 +1,6 @@
 package com.jeffmony.m3u8library;
 
+import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 
 import com.jeffmony.m3u8library.listener.IVideoTransformProgressListener;
@@ -13,7 +14,7 @@ public class VideoProcessor {
     public static void loadLibrariesOnce() {
         synchronized (VideoProcessor.class) {
             if (!mIsLibLoaded) {
-                System.loadLibrary("jeffmony");
+                System.loadLibrary("m3u8proc");
                 System.loadLibrary("avcodec");
                 System.loadLibrary("avformat");
                 System.loadLibrary("avutil");
@@ -41,6 +42,7 @@ public class VideoProcessor {
     }
 
     //从native层调用上来,回调当前的视频转化进度
+    @Keep
     public void invokeVideoTransformProgress(float progress) {
         if (mListener != null) {
             mListener.onTransformProgress(progress);

@@ -19,3 +19,15 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+-repackageclasses 'ldh8u3m'
+-keep class com.jeffmony.m3u8library.listener.IVideoTransformListener {*;}
+-keep,allowobfuscation class com.jeffmony.m3u8library.VideoProcessManager {*;}
+-keepnames class com.jeffmony.m3u8library.VideoProcessManager
+-keepclassmembernames class * {
+    native <methods>;
+}
+-keepclassmembernames class com.jeffmony.m3u8library.VideoProcessManager {
+   getInstance();
+   transformM3U8ToMp4(java.lang.String, java.lang.String, com.jeffmony.m3u8library.listener.IVideoTransformListener);
+}
